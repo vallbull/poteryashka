@@ -1,6 +1,6 @@
 services:
   postgresql:
-    container_name: postgresql2
+    container_name: postgresql
     image: postgres:15.2
     restart: unless-stopped
     environment:
@@ -29,7 +29,7 @@ services:
 
   app:
       build:
-        context: .
+        context: ./poteryashka_service
         dockerfile: Dockerfile
       ports:
         - '8080:8080'
