@@ -48,8 +48,8 @@ class GetPetComponent extends Component {
           <Col className="bg-light">
             Хозяин
           </Col>
-            {this.state.ownerName}
           <Col className="bg-light">
+            {this.state.ownerName}
           </Col>
         </Row>
         <Row xs="5">
