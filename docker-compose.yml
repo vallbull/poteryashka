@@ -13,16 +13,21 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - db
 
   app:
-      build:
-        context: ./poteryashka_service
-        dockerfile: Dockerfile
-      ports:
-        - '8080:8080'
-      depends_on:
-        postgresql:
-          condition: service_healthy
+    build:
+      context: ./poteryashka_service
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    depends_on:
+      postgresql:
+        condition: service_healthy
+    networks:
+      - inner
+      - db
     
   web:
     build:
@@ -31,6 +36,8 @@ services:
       - '3000:3000'
     depends_on:
       - app
+    networks:
+      - inner
 
 #  pgadmin:
 #    container_name: pgadmin2
@@ -45,3 +52,8 @@ services:
 #      - 5050:80
 
 
+networks:
+  inner:
+    name: inner_network
+  db:
+    name: db_network
