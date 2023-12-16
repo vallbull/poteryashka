@@ -25,7 +25,7 @@ class GetPetComponent extends Component {
 
   async componentDidMount() {
     const id = queryParams.get('id');
-    const response = await fetch(`http://158.160.97.240:8080/get_pet?id=${id}`, {method: "POST"});
+    const response = await fetch(`http://localhost:8080/get_pet?id=${id}`, {method: "POST"});
     if (response.status != 200) {
       window.location.replace(`/register?id=${id}`)
     } else {

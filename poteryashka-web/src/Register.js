@@ -29,7 +29,7 @@ const Theme = () => {
     }
     console.log(request)
     const id = queryParams.get("id");
-    fetch(`http://158.160.97.240:8080/register?id=${id}`, {
+    fetch(`http://localhost:8080/register?id=${id}`, {
       method: "POST",
       headers: {
         'Accept': 'application/json',
